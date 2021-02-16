@@ -1,7 +1,11 @@
 
 exports.min = function min(array) {
   if (array) {
-    return Math.min(...array);
+    if (Math.min(...array) === Infinity) {
+      return 0;
+    } else {
+      return Math.min(...array);
+    }
   } else {
     return 0;
   }
@@ -9,7 +13,11 @@ exports.min = function min(array) {
 
 exports.max = function max(array) {
   if (array) {
-    return Math.max(...array);
+    if (Math.max(...array) === -Infinity) {
+      return 0;
+    } else {
+      return Math.max(...array);
+    }
   } else {
     return 0;
   }
@@ -17,7 +25,11 @@ exports.max = function max(array) {
 
 exports.avg = function avg(array) {
   if (array) {
-    return array.reduce((a, b) => (a + b)) / array.length;
+    if (array.length == 0) {
+      return 0;
+    } else {
+      return array.reduce((a, b) => (a + b)) / array.length;
+    }
   } else {
     return 0;
   }
